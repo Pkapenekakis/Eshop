@@ -1,0 +1,3 @@
+TODO: Probably add the keycloakc init script in a different docker file and find a way to run it
+
+IN THE TEST ADD THE CORRECT LINK TO DOWNLOAD DOCKER COMPOSE FROM GITHUB

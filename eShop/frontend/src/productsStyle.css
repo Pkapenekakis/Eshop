@@ -1,0 +1,212 @@
+* 
+{
+    font-family: 'Poppins', sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    font-size: 14px !important;
+    height:80px;
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    z-index: 300000;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.left-content {
+    position: relative;
+    display: inline-block;
+    float: left;
+    width: 55%;
+    height: 1000px;
+}
+
+.right-content {
+    display: flex;
+    justify-content: center;
+    float: right;
+    width: 45%;
+    flex: 1;
+    align-items: center;
+    padding-right: 16px;
+    padding-left: 16px;
+    padding-top: 16px;
+    height: 900px;
+    
+}
+
+.search-card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #1c1c1c;
+    padding: 4rem;
+    border-radius: : 8px;
+    overflow: hidden;
+}
+
+.search-card::before {
+    content: "";
+    position: relative;
+    top: -50%;
+    left: -50%;
+    width: 100%;
+    height: 100%;
+}
+
+.search-card::after {
+    content: "";
+    position: relative;
+    top: -50%;
+    left: -50%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, transparent,#45f3ff, #45f3ff);
+}
+
+form 
+{
+	position: relative;
+	inset: 2px;
+	background: #28292d;
+	padding: 50px 40px;
+	border-radius: 8px;
+	z-index: 2;
+	display: flex;
+	flex-direction: column;
+}
+
+h2 
+{
+	color: #45f3ff;
+	font-weight: 700;
+	text-align: center;
+	letter-spacing: 0.1em;
+    margin-bottom: 10px;
+}
+
+.search-card-form{
+    position: absolute;
+    inset: 2px; /*same as margin, with one value applies that value to top/bottom/left/right*/
+    border-radius: 8px;
+    background: #28292d;
+    z-index: 10; /*specifies the stack order of an element.An ellement with greater stack order is always in front of an element with a lower stack order.*/
+    padding: 50px 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-input{
+    position: relative;
+    width: 300px;
+    margin-top: 35px;
+}
+
+.form-input input{
+    position: relative;
+	width: 100%;
+	padding: 20px 10px 10px;
+	background: transparent;
+	outline: none;
+	box-shadow: none;
+	color: #23242a;
+	font-size: 1em;
+	letter-spacing: 0.05em;
+	transition: 0.5s;
+	z-index: 10;
+    
+}
+
+.form-input span{
+    position: relative;
+	left: 0;
+	padding: 20px 0px 10px;
+	pointer-events: none;
+	font-size: 1em;
+	color: #8f8f8f;
+	letter-spacing: 0.05em;
+	transition: 0.5s;
+}
+
+.form-input input:valid ~span,
+.form-input input:focus ~span{
+    /* color: #45f3ff;*/
+	transform: translateX(0px) translateY(-34px);
+	font-size: 0.75em;
+}
+
+.form-input i 
+{
+	position: relative;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 2px;
+	/*background: #45f3ff;*/
+	border-radius: 4px;
+	overflow: hidden;
+	transition: 0.5s;
+	pointer-events: none;
+	z-index: 9;
+}
+
+.form-input input:valid ~ i,
+.form-input input:focus ~ i {
+	height: 44px;
+}
+
+.form-other{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.searchBtn{
+    border: none;
+	outline: none;
+	padding: 11px 25px;
+	background: #45f3ff;
+	cursor: pointer;
+	border-radius: 4px;
+	font-weight: 600;
+	width: 100px;
+	margin-top: 10px;
+}
+
+input[type="submit"]:active {
+	opacity: 0.8;
+}
+
+.CartSearchBtn{
+    border: none;
+	outline: none;
+	padding: 11px 25px;
+	background: #45f3ff;
+	cursor: pointer;
+	border-radius: 4px;
+	font-weight: 600;
+	width: 150px;
+	margin-top: 10px;
+    text-align: center;
+}
+
+.form-other input[type="button"]{
+    border: none;
+	outline: none;
+	padding: 11px 25px;
+	background: #45f3ff;
+	cursor: pointer;
+	border-radius: 4px;
+	font-weight: 600;
+	width: 90px;
+	margin-top: 10px;
+    text-align: center;
+}
+
+.form-other input[type="button"]:active{
+    opacity: 0.8;
+}

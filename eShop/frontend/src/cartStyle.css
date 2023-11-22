@@ -1,0 +1,139 @@
+* 
+{
+    font-family: 'Poppins', sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: #23242a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    position: relative;
+    width: 680px;
+    height: 720px;
+    background: #1c1c1c;
+    padding: 4rem;
+    border-radius: : 8px;
+    overflow: auto;
+}
+
+.container::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 680px;
+    height: 720px;
+    background: #1c1c1c;
+}
+
+.container::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 680px;
+    height: 720px;
+    background: #1c1c1c;
+}
+
+.container-box{
+    position: absolute;
+    inset: 2px; /*same as margin, with one value applies that value to top/bottom/left/right*/
+    border-radius: 8px;
+    background: #28292d;
+    z-index: 10; /*specifies the stack order of an element.An ellement with greater stack order is always in front of an element with a lower stack order.*/
+    padding: 50px 40px;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+h1{
+    text-align: center;
+    background: #28292d;
+    padding-bottom: 5px;
+}
+
+form 
+{
+	position: absolute;
+	inset: 2px;
+	background: #28292d;
+	padding: 20px 40px;
+	border-radius: 8px;
+	z-index: 2;
+	display: flex;
+	flex-direction: column;
+}
+
+
+
+.form-input{
+    position: relative;
+    width: 300px;
+    margin-top: 35px;
+}
+
+.form-input input{
+    position: relative;
+	width: 100%;
+	padding: 20px 10px 10px;
+	background: transparent;
+	outline: none;
+	box-shadow: none;
+	color: #23242a;
+	font-size: 1em;
+	letter-spacing: 0.05em;
+	transition: 0.5s;
+	z-index: 10;
+    
+}
+
+
+input[type="submit"]{
+    border: none;
+	outline: none;
+	padding: 11px 25px;
+	background: #45f3ff;
+	cursor: pointer;
+	border-radius: 4px;
+	font-weight: 600;
+	width: 100px;
+	margin-top: 10px;
+}
+
+input[type="submit"]:active {
+	opacity: 0.8;
+}
+
+.totalPrice{
+    padding: 20px 20px;
+    text-align: center;
+}
+
+.returnBtn{
+    background: #45f3ff;
+    border: none;
+    outline: none; 
+    position: relative;
+    width: 300px;
+    margin-top: 8px;
+    margin left: 100px;
+    padding: 11px 25px;
+    cursor: pointer;
+    font-weight: 600;
+    width: 100px;
+    border-radius: 4px;
+}
+
+.returnBtn:active{
+    opacity: 0.8;
+}

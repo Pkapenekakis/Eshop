@@ -1,0 +1,205 @@
+* 
+{
+    font-family: 'Poppins', sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: #23242a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h2 
+{
+	color: #45f3ff;
+	font-weight: 700;
+	text-align: center;
+	letter-spacing: 0.1em;
+    margin-bottom: 10px;
+}
+
+.register-card {
+    position: relative;
+    width: 680px;
+    height: 720px;
+    background: #1c1c1c;
+    padding: 4rem;
+    border-radius: : 8px;
+    overflow: hidden;
+}
+
+.register-card::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 680px;
+    height: 720px;
+    background: linear-gradient(0deg, transparent,#45f3ff, #45f3ff);
+    transform-origin: bottom right;
+    animation: animate 6s linear infinite;
+}
+
+.register-card::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 680px;
+    height: 720px;
+    background: linear-gradient(0deg, transparent,#45f3ff, #45f3ff);
+    transform-origin: bottom right;
+    animation: animate 6s linear infinite;
+    animation-delay: -3s;   
+    -webkit-animation: animate 6s linear infinite;
+    -webkit-animation-delay: -3s;
+}
+
+@-webkit-keyframes animate{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+     100%
+    {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes animate{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+     100%
+    {
+        transform: rotate(360deg);
+    }
+}
+
+form 
+{
+	position: absolute;
+	inset: 2px;
+	background: #28292d;
+	padding: 50px 40px;
+	border-radius: 8px;
+	z-index: 2;
+	display: flex;
+	flex-direction: column;
+}
+
+.register-card-form{
+    position: absolute;
+    inset: 2px; /*same as margin, with one value applies that value to top/bottom/left/right*/
+    border-radius: 8px;
+    background: #28292d;
+    z-index: 10; /*specifies the stack order of an element.An ellement with greater stack order is always in front of an element with a lower stack order.*/
+    padding: 50px 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-input{
+    position: relative;
+    width: 600px;
+    margin-top: 18px;
+}
+
+.form-input input{
+    position: relative;
+	width: 100%;
+	padding: 20px 10px 10px;
+	background: transparent;
+	outline: none;
+	box-shadow: none;
+	color: #23242a;
+	font-size: 1em;
+	letter-spacing: 0.05em;
+	transition: 0.5s;
+	z-index: 10;
+    
+}
+
+.form-input span{
+    position: absolute;
+	left: 0;
+	padding: 20px 0px 10px;
+	pointer-events: none;
+	font-size: 1em;
+	color: #8f8f8f;
+	letter-spacing: 0.05em;
+	transition: 0.5s;
+}
+
+.form-input input:valid ~span,
+.form-input input:focus ~span{
+    /* color: #45f3ff;*/
+	transform: translateX(0px) translateY(-34px);
+	font-size: 0.75em;
+}
+
+.form-input i 
+{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 2px;
+	/*background: #45f3ff;*/
+	border-radius: 4px;
+	overflow: hidden;
+	transition: 0.5s;
+	pointer-events: none;
+	z-index: 9;
+}
+
+.form-input input:valid ~ i,
+.form-input input:focus ~ i {
+	height: 44px;
+}
+
+optgroup{
+    font-size: 14px;
+}
+
+input[type="submit"]{
+    border: none;
+	outline: none;
+	padding: 11px 13px;
+	background: #45f3ff;
+	cursor: pointer;
+	border-radius: 4px;
+	font-weight: 600;
+	width: 100px;
+	margin-top: 10px;
+    font-size: 15px;
+}
+
+input[type="submit"]:active{
+    opacity: 0.8;
+}
+
+.cancelButton{
+    background: #45f3ff;
+    border: none;
+    outline: none; 
+    position: relative;
+    width: 300px;
+    margin-top: 8px;
+    padding: 11px 25px;
+    cursor: pointer;
+    font-weight: 600;
+    width: 100px;
+    border-radius: 4px;
+    font-size: 15px;
+}
+
+.cancelButton:active{
+    opacity: 0.8;
+}
