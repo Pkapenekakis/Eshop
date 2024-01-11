@@ -29,9 +29,11 @@ RUN wget https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for
 RUN mv wait-for-it.sh /usr/local/bin
 RUN chmod +x /usr/local/bin/wait-for-it.sh
 
-COPY test.sh /opt/tools/
-RUN chmod +x /opt/tools/test.sh
+#keycloak init script
 
-CMD ["/opt/tools/test.sh"]
+COPY keycloakInit.sh /opt/tools/
+RUN chmod +x /opt/tools/keycloakInit.sh
+
+CMD ["/opt/tools/keycloakInit.sh"]
 
  
