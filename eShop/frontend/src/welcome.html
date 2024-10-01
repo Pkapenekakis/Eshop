@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title> Petekape's Eshop </title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel = "stylesheet" href="welcomeStyle.css">
+        <link rel="shortcut icon" href="#">
+
+        <!--Script after the authorization process-->
+        <script> const userN = localStorage.getItem("username")</script>
+        <script type="text/javascript" src="js/script.js"></script>
+    </head>
+    
+    <body>
+        <script>
+            authUser();
+        </script>
+        <div class="petekapebar-header">
+            <div class="petekapebar-left-content">
+                <button class="dropDownBtn">Menu</button>
+                <div class="dropDown-content">
+                    <a href="/products.html">Products</a>
+                    <a href="/cart.php">Cart</a>
+                    <a href="/seller.php">Seller</a>
+                    <a href="/administration.php">Administration</a>
+                </div> 
+            </div>  
+            
+            <div class="petekapebar-right-content"> 
+                <div class= "wrapper">
+                    <!--<h3><?php echo $_SESSION['name']." ".$_SESSION['surname']?></h3> -->
+                    <div id="userNContainer" class="nameDiv"></div>
+                    
+
+                    <div class="logout">
+                        <button onclick="Logout(event)">Logout</button>
+                    </div> 
+                </div>   
+            </div>
+        </div>
+        
+        
+        <script>
+                    // Check if userN is not null or undefined before updating the div
+                    if (userN) {
+                        document.getElementById("userNContainer").textContent = userN;
+                    }else{
+                        console.log("error")
+                    }
+                </script>
+    </body>
+<htlm>

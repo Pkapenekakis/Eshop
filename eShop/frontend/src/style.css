@@ -187,7 +187,7 @@ form
     text-decoration: beige;
 }
 
-input[type="submit"]{
+.btn-login{
     border: none;
 	outline: none;
 	padding: 11px 25px;
@@ -199,7 +199,7 @@ input[type="submit"]{
 	margin-top: 10px;
 }
 
-input[type="submit"]:active {
+.btn-login:active {
 	opacity: 0.8;
 }
 
@@ -219,6 +219,10 @@ input[type="submit"]:active {
 
 .RegiButton:active{
     opacity: 0.8;
+}
+
+.form-input input {
+    color: white; 
 }
 
 

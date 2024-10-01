@@ -3,7 +3,7 @@
 
     if (!isset($_SESSION['id'])) {
         $_SESSION['msg'] = "You have to log in first";
-        header('location: /WebProject/index.php');
+        header('location: /index.php');
     }
 
 ?>

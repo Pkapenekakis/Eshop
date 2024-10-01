@@ -1,0 +1,8 @@
+FROM node
+WORKDIR /backend
+COPY package.json .
+RUN npm install
+RUN npm install migrations --save
+COPY . .
+
+CMD ["npx", "nodemon", "src/index.js"]

@@ -6,7 +6,7 @@ volumes:
       
 services:
   keycloak:
-    image: quay.io/keycloak/keycloak:latest
+    image: quay.io/keycloak/keycloak:18.0.0
     restart: always
     container_name: keycloak
     environment:
@@ -34,24 +34,54 @@ services:
       - POSTGRES_USER=keycloak
       - POSTGRES_PASSWORD=password
     ports:
-      - 5432:5432
+      - "5432:5432"
       
   frontend:
     build:
-      context: ./frontend
+      context: .
+      dockerfile: Dockerfile
     container_name: frontend
     restart: always
     ports:
       - "8000:80"
+    volumes:
+      - /home/petekape/Desktop/projects/Eshop/eShop/frontend/src:/usr/local/apache2/htdocs/
 
-  keycloakinit:
-    build:
-      context: ./keycloak
-      dockerfile: keyinit
-    volumes: 
-      - /var/run/docker.sock:/var/run/docker.sock
+  product-service:
+    build: ./backend
+    ports:
+      - 3000:3000
+    environment:
+      - NODE_ENV=production
+      - POSTGRES_HOST=backend_db
+      - POSTGRES_PORT=5431
+      - POSTGRES_DB=products_database
+      - POSTGRES_USER=db_user
+      - POSTGRES_PASSWORD=db_password
     depends_on:
-      - keycloak
+      - backend_db
+    command: ["npm", "run", "migrate"]
+      
+  backend_db:
+    image: postgres:latest
+    restart: always
+    environment:
+      - POSTGRES_DB=products_database
+      - POSTGRES_USER= db_user
+      - POSTGRES_PASSWORD= db_password
+    ports:
+      - 5431:5431 
+
+  backend_db_migrate:
+    image: postgres:latest
+    environment:
+      - POSTGRES_DB=products_database
+      - POSTGRES_USER=db_user
+      - POSTGRES_PASSWORD=db_password
+    volumes:
+      - ./backend/migrations:/docker-entrypoint-initdb.d
+    command: ["postgres", "-c", "listen_addresses=*"]
+      
   
 
      

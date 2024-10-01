@@ -64,21 +64,26 @@
     padding-right: 16px;
 }
 
+.nameDiv{
+    text-align: right;
+}
+
 .logout{
     position: relative;
 }
 
-.logout a{
+.logout button{
     color: white;
     background: #45f3ff;
     border: none;
     outline: none; 
     position: relative;
-    width: 300px;
+    width: 100px;
     margin-top: 8px;
     padding: 11px 25px;
     cursor: pointer;
-    width: 100px;
     border-radius: 4px;
     text-decoration: none;
+    margin-top: 10px;
+    text-align: right;
 }

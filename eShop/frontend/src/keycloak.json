@@ -1,0 +1,10 @@
+{
+  "realm": "eshop",
+  "auth-server-url": "http://localhost:8080/auth",
+  "ssl-required": "external",
+  "resource": "userHandling",
+  "credentials": {
+    "secret": "Ug2tKbKA7u7UNz0Ol7bY9cxU569Ji8R7"
+  },
+  "confidential-port": 0
+}

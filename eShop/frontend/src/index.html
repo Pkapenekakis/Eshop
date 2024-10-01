@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title> Petekape's Eshop</title>   
+        <link rel="stylesheet" href="style.css"/>   
+        <link rel="shortcut icon" href="#">
+    </head>
+    
+    <body>
+            <div class="login-card">
+                <div class="login-card-form">
+                    <form id="loginform" onsubmit="return Login(event)">
+                        <h2>Sign in</h2>
+                        <div class="form-input">
+                            <input id="username" type="text" name="username" required/>
+                            <span>Username</span>
+                            <i></i>
+                        </div>      
+                        <div class="form-input">
+                            <input id ="password" type="password" name="password" required/>
+                            <span>Password</span>
+                            <i></i>
+                        </div>
+                        <div class="form-other">
+                            <div class="checkbox">
+                                <input type="checkbox" id="rememberMeCheckbox">
+                                <label for="rememberMeCheckbox">Remember me</label>
+                            </div>
+                            <a href="#">I forgot my password!</a>
+                        </div> 
+                        <button type="submit" class="btn-login">Login</button>
+                        <input type = "button" onclick="toRegister()" value = "Register" id="RegButton" class="RegiButton">            
+                    </form> 
+                    
+                    <p id="errorMessage" style="color: red;"></p>                 
+                </div>                
+            </div>         
+        
+        <script type="text/javascript" src="js/script.js"></script>
+    </body>
+<htlm>

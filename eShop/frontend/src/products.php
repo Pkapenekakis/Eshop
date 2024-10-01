@@ -1,128 +1,12 @@
-<?php
-    //Get the database connection
-    define('__ROOT__', dirname(dirname(__FILE__)));
-    require_once(__ROOT__.'/WebProject/database.php');
-
-    session_start();
-    
-    //If no session is set we get a wrong access to the page
-    if (!isset($_SESSION['id'])) {
-        $_SESSION['msg'] = "You have to log in first";
-        header('location: /WebProject/index.php');
-    }
-
-
-    $list=array();
-
-    //When the search button is pressed empty the list of all the products
-    if (isset($_GET['search'])) {
-        unset($list); //delete the list
-        $list=array(); //reinstansiate the list
-    }
-
-    //If the user entered a product name, fetch all products with that name
-    if(!empty($_POST['product_Name'])) {
-        $pname = $_POST['product_Name'];
-        $query = "SELECT * FROM products WHERE NAME= :name "; 
-        $stmt = $conn->prepare($query);
-        $stmt->bindParam('name',$pname,PDO::PARAM_STR);
-        if($stmt->execute()){
-            $result = $stmt->fetchAll();
-            foreach($result as $row){
-                $list[] = $row;
-            }
-        }
-    }else if(!empty($_POST['product_Category'])){ //If the user entered a product's category, fetch all sellers with that name
-        $cate = $_POST['product_Category'];
-        $query = "SELECT * FROM products WHERE CATEGORY= :category "; 
-        $stmt = $conn->prepare($query);
-        $stmt->bindParam('category',$cat,PDO::PARAM_STR);
-        if($stmt->execute()){
-            $result = $stmt->fetchAll();
-            foreach($result as $row){
-                $list[] = $row;
-            }
-        }
-    }else if(!empty($_POST['product_Price'])){ //If the user entered a product's price, fetch all sellers with that name
-        $price = $_POST['product_Price'];
-        $query = "SELECT * FROM products WHERE PRICE= :price ";  
-        $stmt = $conn->prepare($query);
-        $stmt->bindParam('price',$price,PDO::PARAM_STR);
-        if($stmt->execute()){
-            $result = $stmt->fetchAll();
-            foreach($result as $row){
-                $list[] = $row;
-            }
-        }
-    }else if(!empty($_POST['product_Date'])){ //If the user entered a product's date of withdrawal, fetch all sellers with that name
-        $date = $_POST['product_Date'];
-        $query = "SELECT * FROM products WHERE DATEOFWITHDRAWAL= :date "; 
-        $stmt = $conn->prepare($query);
-        $stmt->bindParam('date',$date,PDO::PARAM_STR);
-        if($stmt->execute()){
-            $result = $stmt->fetchAll();
-            foreach($result as $row){
-                $list[] = $row;
-            }
-        }
-    }else if(!empty($_POST['seller_Name'])){ //If the user entered a seller's name, fetch all sellers with that name
-        $sname = $_POST['seller_Name'];
-        $role = 'PRODUCTSELLER';
-        $query = "SELECT * FROM users WHERE ROLE= :role AND NAME= :name "; 
-        $stmt = $conn->prepare($query);
-        $stmt->bindParam('role',$role,PDO::PARAM_STR);
-        $stmt->bindParam('name',$sname,PDO::PARAM_STR);
-        if($stmt->execute()){
-            $result = $stmt->fetchAll();
-            foreach($result as $row){
-                $list[] = $row;
-            }
-        }
-    }else if(!empty($_POST['seller_Username'])){ //If the user entered a seller's username, fetch all sellers with that username
-        $sname = $_POST['seller_Username'];
-        $role = 'PRODUCTSELLER';
-        $query = "SELECT * FROM users WHERE ROLE= :role AND USERNAME= :name ";  
-        $stmt = $conn->prepare($query);
-        $stmt->bindParam('role',$role,PDO::PARAM_STR);
-        $stmt->bindParam('name',$sname,PDO::PARAM_STR);
-        if($stmt->execute()){
-            $result = $stmt->fetchAll();
-            foreach($result as $row){
-                $list[] = $row;
-            }
-        }
-    }else{
-        $query = "SELECT * FROM products"; 
-        $stmt = $conn->prepare($query);
-        if($stmt->execute()){
-            $result = $stmt->fetchAll();
-            foreach($result as $row){
-                $list[] = $row;
-            }
-        }
-    }
-
-    //When the add to cart button is pressed create a cart with the product id and the user id
-    if ( $_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['prodID']) && !empty($_POST['add_to_cart'])) {
-        $uid=$_SESSION['userid'];
-        $pid=$_POST['prodID'];
-        $query = "INSERT INTO carts (USERID, PRODUCTID) VALUES (?,?)";
-        $stmt = $conn->prepare($query);
-        $stmt->execute([$uid,$pid]);
-       
-    }
-
-?>
-
-
 <!DOCTYPE html>
-<htlm lang="en">
+<html lang="en">
     <head>
         <meta charset="UTF-8" />
         <title> This is a site </title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link rel = "stylesheet" href="productsStyle.css">
+        <script type="text/javascript" src="js/script.js"></script>
     </head>
     
     <body>
@@ -198,6 +82,5 @@
                 </div>
             </div>
         </div>            
-        <script type="text/javascript" src="js/script.js"></script>
     </body>
 <htlm>
